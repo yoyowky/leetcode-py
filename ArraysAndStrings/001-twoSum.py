@@ -11,6 +11,7 @@
 # for i in nums: // i is value
 
 
+# method: array + hashmap
 def twoSum(nums, target):
     map = {}
     for i in range(len(nums)):
