@@ -1,8 +1,10 @@
 # nums is array; nums.append([] or "" or ...), append element in array
+# sort array: nums.sort()
 
 # sort+two pointer
 
 def threeSum(nums):
+    # sort array
     nums.sort()
     twoSum = 0
     l=0
