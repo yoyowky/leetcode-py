@@ -1,5 +1,6 @@
 // Iteration + stack
 // Binary Tree Preorder Traversal:  root-> left->right
+// O(n) O(n)
 
 /**
  * Definition for a binary tree node.
