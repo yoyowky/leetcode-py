@@ -28,4 +28,4 @@ const bt = {
     }
 }
 
-export const bt;
+module.exports = bt;
