@@ -9,7 +9,7 @@
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
-// O(nlogk), O(n)
+// O(nlogk), O(k)
  class MinHeap {
     constructor(){
         this.heap = [];
