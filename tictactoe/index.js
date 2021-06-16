@@ -20,9 +20,10 @@ class TicTacToeGame{
       for(let i=0,j=this.columns-1; i<this.rows,j>=0; i++,j--){
         this.rightDiagonals.set(i,j);
       }
+      console.log('rightDiagonals', this.rightDiagonals)
       
       // App View
-      this.boardContainer=document.querySelector('#board'); // 
+      this.boardContainer=document.querySelector('#board');
       this.playerContainer=document.querySelector('#player');
       this.statusContainer=document.querySelector('#status');
       this.btnPlayagain=document.querySelector('#btnPlayAgain');
@@ -59,20 +60,23 @@ class TicTacToeGame{
       console.log(this.board)
      return this.board.map((row,rowIdx)=>{
          const columnsArr=new Array(this.columns).fill('');
+         console.log('columnsArr', columnsArr)
          return this.createRow(columnsArr,rowIdx);
       }).join('')
     }
     
     showBoard(){
-       this.boardContainer.insertAdjacentHTML('beforeend',this.getBoard());
+      console.log(this.getBoard())
+       this.boardContainer.insertAdjacentHTML('beforeend',this.getBoard()); //在id为board的table里插入元素
     }
    
     
     // play again, event handler
     handlePlayAgain=(e)=>{
         const cells=[...this.boardContainer.querySelectorAll('.cell')];
+        console.log('cells', cells)
       
-        this.boardContainer.addEventListener('click',this.handleMove);
+        // this.boardContainer.addEventListener('click',this.handleMove);
       
         this.currentPlayer=0;
         this.updatePlayersTurnView();
@@ -86,6 +90,7 @@ class TicTacToeGame{
     
     // on player's move, click event handler
     handleMove=(e)=>{
+      console.log('handloemovethis', this)
          const { target }=e;
          if(target.classList.contains('cell')){
            
@@ -99,7 +104,7 @@ class TicTacToeGame{
            
            // keep track of current player's move in the playersMoveHistory map ( this will help us to find the winner)
             this.playersMoveHistory.set(this.currentPlayer,[...this.playersMoveHistory.get(this.currentPlayer),[parseInt(target.getAttribute('data-row')),parseInt(target.getAttribute('data-col'))]]);
-           
+           console.log('playersMoveHistory',this.playersMoveHistory);
             // after every valid move lets check if we already found our winner
             this.findWinner();
            
@@ -114,7 +119,7 @@ class TicTacToeGame{
     
     // event listeners for the board cells and the play again button
     bindEventListener(){
-      this.btnPlayagain.addEventListener('click',this.handlePlayAgain);
+      // this.btnPlayagain.addEventListener('click',this.handlePlayAgain);
       this.boardContainer.addEventListener('click',this.handleMove);
     }
     
@@ -144,21 +149,18 @@ class TicTacToeGame{
       const cells=[...this.boardContainer.querySelectorAll('.cell')];
      
       //  player 0 or 1 Won
-       const currentPlayersMoves=this.playersMoveHistory.get(this.currentPlayer);
-            let allrows={};
-            let allcols={};
-            currentPlayersMoves.forEach(([row,col])=> {
-                  allrows[row]=(allrows[row] || 0)+1;
-                  allcols[col]=(allcols[col] || 0)+1;
-            })
-      
-          
-         
-          if(Object.values(allrows).includes(this.rows) || Object.values(allcols).includes(this.columns)){
-               this.updateGameStatusView(this.currentPlayer.toString());
-               this.endGame(cells);
-               return;
-          }
+      const currentPlayersMoves=this.playersMoveHistory.get(this.currentPlayer);
+      let allrows={};
+      let allcols={};
+      currentPlayersMoves.forEach(([row,col])=> {
+            allrows[row]=(allrows[row] || 0)+1;
+            allcols[col]=(allcols[col] || 0)+1;
+      })
+      if(Object.values(allrows).includes(this.rows) || Object.values(allcols).includes(this.columns)){
+            this.updateGameStatusView(this.currentPlayer.toString());
+            this.endGame(cells);
+            return;
+      }
       
       //left diagonals
       
@@ -216,7 +218,7 @@ class TicTacToeGame{
     }
     
     // display's the current status in the top bar
-    updateGameStatusView(statusText='pending'){
+    updateGameStatusView(statusText='pending'){ // defult status if no status pass
         this.statusContainer.innerText=this.status[statusText];
         this.statusContainer.setAttribute('data-status',statusText);
     }
@@ -225,6 +227,10 @@ class TicTacToeGame{
   
   // create an instance of tictactoe and call init function
   const game=new TicTacToeGame(3,3);
-  window.addEventListener('DOMContentLoaded',()=>{
-      game.init();
-  });
+  // window.addEventListener('DOMContentLoaded',()=>{
+  //     game.init();
+  // });
+  game.init();
+
+  // const arr = new Array(4).fill(new Array(5).fill('x'))
+  // console.log(arr)
