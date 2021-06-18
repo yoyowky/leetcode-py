@@ -1,0 +1,31 @@
+.star-container{
+    display: flex;
+    width: 300px;
+    flex-direction: row-reverse;
+}
+
+.star:before{
+    content: "\f005";
+    font-family: fontAwesome;
+    color: #aaa;
+    font-size: 60px;
+    position: relative;
+    display: block; /*和after变成两行*/
+}
+
+.star:after{
+    content: "\f005";
+    font-family: fontAwesome;
+    color: gold;
+    font-size: 60px;
+    top: 8px; /*与before放在一行*/
+    position: absolute;
+    opacity:0;
+}
+
+.star:hover:after,
+.star:hover~.star:after,
+.star_checked:after,
+.star_checked~.star:after{
+    opacity:1;
+}

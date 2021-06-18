@@ -1,0 +1,19 @@
+<form id="parent">
+	<input type="text" name="foo.bat" value="aaa"  />
+	<input type="text" name="foo.bar.baz" value="bbb" />
+	<input type="text" name="fizz" value="ccc"  />
+	<script src="index.js"></script>
+</form>
+
+<!-- 
+	return:
+	{
+	"foo": {
+		"bat" : _____, //Actual value of 1st text box
+		"bar" : {
+			"baz" : _____ // Value of 2nd text box
+		}
+	},
+	"fizz" : _____ // Value of 3rd text box
+}
+ -->

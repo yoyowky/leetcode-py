@@ -1,0 +1,89 @@
+<!-- 自己画图版本 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Star Widget
+    </title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+        const container = document.querySelector('.carousel-container');
+        const star = container.querySelector('.star');
+        const stars = 5;
+        addStars(stars);
+
+        function addStars(count) {
+
+          const documentFragment = new DocumentFragment();
+
+          for (let i = 0; i < count; i++) {
+            const node = star.cloneNode(true);
+            node.setAttribute('id', `star-${i}`);
+            node.dataset.index = i;
+            node.onclick = () => {
+              const stars = [...document.querySelectorAll('.star')];
+              let count = 0;
+              for (let j = 0; j < stars.length; j++) {
+                const star = stars[j];
+                if (count < i) {
+                  star.classList.remove('checked');
+                } else {
+                  star.classList.add('checked');
+                }
+                count++;
+              }
+            };
+
+            documentFragment.append(node);
+          }
+
+          container.append(documentFragment);
+          star.remove();
+        }
+
+      });
+
+    </script>
+
+    <style>
+      .carousel-container {
+        width: 200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-direction: row-reverse;
+      }
+
+      .carousel-container>.star {
+        background: darkgray;
+        border: 1px solid black;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+      }
+
+      .star:hover,
+      .star:hover~.star {
+        background: yellow;
+        transition: 500ms background;
+      }
+
+      .carousel-container>.star.checked {
+        background: yellow;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="carousel-container">
+      <span class="star"></span>
+    </div>
+  </body>
+
+</html>
