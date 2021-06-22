@@ -162,7 +162,7 @@ class Carousel{
     disableInteraction() {
         this.moving = true;
     
-        setTimeout(function(){
+        setTimeout(()=>{
           this.moving = false
         }, 500);
     }

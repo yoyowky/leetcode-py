@@ -69,7 +69,7 @@ class Tictactoe {
     moveHandler=(e)=>{ // 注意！！！！容易错：要用箭头函数
         // 箭头函数里是没有this的，而普通函数是有this的
         // 箭头函数中的this是在定义函数时绑定，普通函数是在执行函数时绑定
-        // console.log(this) // global的this， 如果是普通函数，用call这个function的this==this.boardComponent
+        // console.log(this) // 定义函数时的this， 如果是普通函数，用call这个function的this==this.boardComponent
         this.status='pending';
         this.updateGameStatus();
         const {target} = e;
