@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+body {
+    background-color: #e3e3e3;
+}
+
+table {
+    text-align: center;
+}
+
+table>tbody,
+table>tfoot {
+    background-color: #fff;
+}
+
+table thead tr {
+   
+    background-color: rgb(26, 84, 122);
+    color: #fff;
+    height: 40px;
+}
+
+table>tbody td {
+    padding: 5px 0;
+    border-bottom: 2px solid #eee;
+}
+
+.pager {
+    width: 800px;
+    color: #fff;
+    margin: 10px auto 0;
+}
+
+.pager ul {
+    overflow: hidden;
+}
+
+.pager ul li {
+    float: left;
+    width: 30px;
+    height: 30px;
+    background-color: cornflowerblue;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.pager ul li.active {
+    cursor: auto;
+    background-color: #e3e3e3;
+    color: black;
+}
