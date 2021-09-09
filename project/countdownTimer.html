@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="yoyo"></div>
+    <script>
+        // console.log('start')
+// setTimeout(()=>{
+//     document.getElementById('yoyo').innerText='New yoyo'
+// }, 3000)
+// console.log('end')
+
+// 1-9 递增
+// let i = 1;
+// console.log('start')
+// let id = setInterval(()=>{
+//     document.getElementById('yoyo').innerText=i++;
+//     if(i===10){ // 最后显示1-9
+//         console.log(id)
+//         clearInterval(id); // 必须加个把setInterval加个id，要不不会显示
+//     }
+// }, 100)
+// console.log('end')
+
+// 10-0 递减少
+let i = 10;
+console.log('start')
+let id = setInterval(()=>{
+    document.getElementById('yoyo').innerText=i--;
+    if(i===-1){ // 最后显示1-9
+        console.log(id)
+        clearInterval(id); // 必须加个把setInterval加个id，要不不会显示
+    }
+}, 100)
+console.log('end')
+    </script>
+    <!-- <script src="countdownTimer.js"></script> -->
+</body>
+</html>

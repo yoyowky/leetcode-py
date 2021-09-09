@@ -65,5 +65,3 @@ TicTacToe.prototype.findWinner = function(player){
  * var obj = new TicTacToe(n)
  * var param_1 = obj.move(row,col,player)
  */
-
- 348. Design Tic-Tac-Toe

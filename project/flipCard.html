@@ -1,0 +1,145 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card .flip-card-inner.flip {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+<body>
+
+<h1>Card Flip with Text</h1>
+<h3>Click the text below:</h3>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1>Hello</h1> 
+      <p>This is English</p> 
+    </div>
+    <div class="flip-card-back">
+      <h1>Boujour</h1> 
+      <p>This is French</p> 
+    </div>
+  </div>
+</div>
+<script>
+  document.querySelector('.flip-card .flip-card-inner').addEventListener('click', function(e){
+    document.querySelector('.flip-card .flip-card-inner').classList.toggle("flip");
+  })
+</script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flash-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flash-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flash-card:hover .flash-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flash-card-front, .flash-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flash-card-front {
+  background-color: grey;
+  color: white;
+}
+
+.flash-card-back {
+  background-color: pink;
+  color: black;
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+<body>
+
+<h1>Card flash with Text</h1>
+<h3>Hover over the card below:</h3>
+
+<div class="flash-card">
+  <div class="flash-card-inner">
+    <div class="flash-card-front">
+      <h1>Hello</h1> 
+      <p>This is English</p> 
+    </div>
+    <div class="flash-card-back">
+      <h1>Boujour</h1> 
+      <p>This is French</p> 
+    </div>
+  </div>
+</div>
+</body>
+</html>

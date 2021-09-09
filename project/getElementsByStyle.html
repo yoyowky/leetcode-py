@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <title class="a" style="color: blue;">
+        qqq
+    </title>
+    <div class="b">
+        <div class="d" style="color: blue;">sss</div>
+        <p class="c">sss</p>
+    </div>
+    <script>
+        // dfs
+        const children = []
+        let dfsOnHTMLNodesPreOrder = (node = document.body) => {
+            let stk = [];
+            stk.push(node);
+            while(stk.length !== 0){
+                let currentNode = stk.pop();
+                //check for the condiditon or just console.log
+                // console.log(currentNode);
+                children.push(currentNode);
+                if(currentNode && currentNode.childNodes && currentNode.childNodes.length >0){
+                    for(let i = currentNode.childNodes.length - 1; i>=0; i--){
+                        stk.push(currentNode.childNodes[i]);
+                    }
+                }
+            }
+        }
+        dfsOnHTMLNodesPreOrder();
+        console.log('children', children)
+        children.forEach((node) => {
+            if(node.style && node.style.color === "blue"){
+                console.log(node)
+            }  
+        })
+    </script>
+</body>
+</html>
+
+
+<!-- https://www.softnami.com/posts_pr/traversing_the_html_dom_using_depth_and_breath_first_search.html -->

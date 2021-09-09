@@ -1,0 +1,21 @@
+#div1{
+    border: 1px solid black;
+    background-color: red;
+    /* height: 300px;  如果不设置高度，为content的高度，若content为空，则显示成一条线 */
+    /* width:400px; 如果不设置宽度，为父元素body的宽度 */
+    float: left
+}
+
+#div2{
+    background-color: yellow;
+    height: 230px;
+    width: 450px;
+    float: left
+}
+
+#div3{
+    background-color: blue;
+    height: 160px;
+    width: 500px;
+    float: left
+}

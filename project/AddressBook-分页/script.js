@@ -51,17 +51,17 @@ const students = [
 const size = students.length;
 const amountPerPage = 5;
 const page = Math.ceil(size/amountPerPage);
-let arrstr = [];
+let pageNumbers = [];
 for(let i=1; i<=page; i++){
-    arrstr.push(i);
+    pageNumbers.push(i);
 }
-let str = "";
+let inner = "";
 let newarr = [];
 let boxdata = document.querySelector(".boxdata");
 // 初始化
-let Pagination = () => {
+const init = () => {
     for(let i= 0;i<amountPerPage;i++){
-        str += `
+        inner += `
             <tr class="otr">
             <th>${students[i].id}</th>
             <th>${students[i].name}</th>
@@ -71,31 +71,31 @@ let Pagination = () => {
             </tr>
             <hr>
             `;
-        boxdata.innerHTML = str
+        boxdata.innerHTML = inner
     }
 }
-Pagination();
+init();
 
 //创建分页导航
-arrstr.forEach((value, index) => {
-    let oli = document.createElement("li");
-    oli.innerHTML = value
-    oli.setAttribute("class", "olis");
-    document.querySelector(".pageable").append(oli);
+pageNumbers.forEach((value, index) => {
+    let pageNumber = document.createElement("li");
+    pageNumber.innerHTML = value
+    pageNumber.setAttribute("class", "pageNumber");
+    document.querySelector(".pageable").append(pageNumber);
 })
 // 实时生成数据
 // (1-1*10) <==思路
-document.querySelector(".pageable").addEventListener("click", function (e) {
+document.querySelector(".pageable").addEventListener("click", pageHandler);
+function pageHandler(e){
     e = e || window.event;
     target = e.target || e.srcElement;
-    str = " ";
+    inner = "";
     if(target.nodeName.toLowerCase() =="li"){
-        console.log(e.target);
-        let targetnum = parseInt(e.target.innerHTML);
-        console.log((targetnum) * amountPerPage);
-        for (let i = (targetnum-1)*amountPerPage; i < (targetnum) * amountPerPage; i++) {
-            console.log(students[i])
-            str += `<tr class="otr">
+        let targetNum = parseInt(e.target.innerHTML);
+        console.log((targetNum) * amountPerPage);
+        for (let i = (targetNum-1)*amountPerPage; i < (targetNum) * amountPerPage; i++) {
+            // console.log(students[i])
+            inner += `<tr class="otr">
                 <th>${students[i].id}</th>
                 <th>${students[i].name}</th>
                 <th>${students[i].phone}</th>
@@ -104,8 +104,8 @@ document.querySelector(".pageable").addEventListener("click", function (e) {
                 </tr>
             <hr>
             `
-            boxdata.innerHTML = str
+            boxdata.innerHTML = inner
         }
 
     }
-});
+}

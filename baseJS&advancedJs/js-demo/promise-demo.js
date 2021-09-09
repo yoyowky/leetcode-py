@@ -3,10 +3,12 @@ function loadImg(src){ // 返回一个promise对象
         (resolve, reject)=>{
             const img = document.createElement('img');
             img.onload = ()=>{
+                console.log('image is loaded')
                 resolve(img);
             }
             img.onerror = ()=>{
                 const err = new Error(`fail to load img ${src}`);
+                console.log('error!!!')
                 reject(err);
             }
             img.src = src;

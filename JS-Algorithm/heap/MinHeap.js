@@ -44,8 +44,12 @@ class MinHeap {
     }
     //删除堆顶
     pop(){
-        this.heap[0]=this.heap.pop(); // pop()取出最后一位并返回值；可以保证长度减去一
-        this.shiftDown(0);
+        if(this.heap.length === 1){
+            this.heap.pop();
+        } else {
+            this.heap[0]=this.heap.pop(); // pop()取出最后一位并返回值；可以保证长度减去一
+            this.shiftDown(0);
+        }
     }
     //获取堆顶
     peek(){
@@ -57,14 +61,16 @@ class MinHeap {
     }
 }
 
-// const h = new MinHeap();
-// h.insert(3);
-// h.insert(2);
-// h.insert(1);
-// console.log('h',h);
-// h.pop();
-// console.log(h.peek());
-// console.log(h.size());
+const h = new MinHeap();
+h.insert(3);
+h.insert(2);
+h.insert(1);
+console.log('h',h);
+h.pop();
+console.log('111',h.peek());
+h.pop();
+console.log('2222',h.peek());
+console.log(h.size());
 
 
 module.exports = MinHeap;

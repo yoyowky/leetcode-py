@@ -1,9 +1,10 @@
-<form id="parent">
+<!-- <form id="parent"  method="POST">
 	<input type="text" name="foo.bat" value="aaa"  />
 	<input type="text" name="foo.bar.baz" value="bbb" />
 	<input type="text" name="fizz" value="ccc"  />
+	<button type="submit">submit</button>
 	<script src="index.js"></script>
-</form>
+</form> -->
 
 <!-- 
 	return:
@@ -17,3 +18,15 @@
 	"fizz" : _____ // Value of 3rd text box
 }
  -->
+
+ <html>
+	<body>
+	  <form id="parent" method="POST">
+		<input type="text" name="foo.bat" value="aaa"  />
+		<input type="text" name="foo.bar.baz" value="bbb" />
+		<input type="text" name="fizz" value="ccc"  />
+		<button type="submit" id="submit_button" value="Submit request" >Submit</button>
+	  </form>
+	  <script src="index.js"></script>
+	</body>
+  </html>
