@@ -1,21 +1,41 @@
 #div1{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     background-color: red;
     /* height: 300px;  如果不设置高度，为content的高度，若content为空，则显示成一条线 */
     /* width:400px; 如果不设置宽度，为父元素body的宽度 */
-    float: left
+    /* float: left */
 }
 
 #div2{
     background-color: yellow;
-    height: 230px;
-    width: 450px;
+    height: 200px;
+    width: 200px;
     float: left
 }
 
 #div3{
     background-color: blue;
-    height: 160px;
-    width: 500px;
+    height: 220px;
+    width: 220px;
     float: left
+}
+
+#div4{
+    background-color: black;
+    height: 240px;
+    width: 240px;
+    /* float: left */
+    /* clear:both;  */
+    /*清除浮动：表示清除该元素之前的内容,both指清除左浮动and右浮动。代表从div4开始不再浮动，显示在上面浮动的东西下面，不被上面浮动的内容覆盖*/
+}
+
+#clearDiv::after{ /*伪元素：对选择器选择的内容进行处理， 在cleardiv结束的地方添加一段内容*/
+    content:"";
+    visibility:hidden;
+    height: 0px;
+    display: block;
+    clear:both;
+}
+#clearDiv{/*解决ie浏览器的bug*/
+    zoom:1; 
 }

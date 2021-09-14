@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .main{
+            height: 300px;
+            width: 300px;
+            background-color: blue;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .div1{
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            position: absolute; /*父元素如果没有设定position，则子元素以body进行绝对定位*/
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div class="div1"></div>
+    </div>
+</body>
+</html>

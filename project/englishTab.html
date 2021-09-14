@@ -1,91 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial;}
-
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .tab{
+      height: 50px;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+      overflow: hidden;
+    }
+    .tab button{
+      font-size: 20px;
+      background-color: inherit;
+      height: 100%;
+      float: left; /*三个button左对齐*/
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .tab button:hover{
+      background-color: #ddd;
+    }
+    .tab button.active{
+      background-color: #ccc;
+    }
+    .content{
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+      display: none;
+    }
+  </style>
+  <title>Document</title>
 </head>
 <body>
-
-<h2>Tabs</h2>
-<p>Click on the buttons inside the tabbed menu:</p>
-
-<div class="tab">
-  <button class="tablinks active" onclick="getContent(event, 'en')">English</button>
-  <button class="tablinks" onclick="getContent(event, 'fr')">French</button>
-  <button class="tablinks" onclick="getContent(event, 'sp')">Spanish</button>
-</div>
-<div class="tabcontent">
-  <h3 class="title">Hello</h3>
-  <p class="content">This is English</p>
-</div>
-
-<script>
-const translation = {
-    en:{
-        title: 'Hello',
-        p: 'This is English',
-    },
-    fr:{
-        title: 'Boujour',
-        p: 'This is French',
-    },
-    sp:{
-        title: 'Hola',
-        p: 'This is Spanish',
-    }
-}
-function getContent(e, lang) {
-    const content = translation[lang];
-    document.querySelector(".title").innerText = content.title;
-    document.querySelector(".content").innerText = content.p;
-    tablinks = document.getElementsByClassName("tablinks");
-    [...tablinks].forEach(tablink => {
-        tablink.classList.remove('active');
-    })
-    // for (i = 0; i < tablinks.length; i++) {
-    //     tablinks[i].classList.remove('active')
-    // }
-    e.target.className += " active";
-}
-</script>
-   
+  <div class="tab">
+    <button onclick="clickCity(event,'en')">English</button>
+    <button onclick="clickCity(event,'fr')">French</button>
+    <button onclick="clickCity(event,'ch')">Chinese</button>
+  </div>
+  <div class="content" id="en">
+    <h3>English</h3>
+    <p>This is English</p>
+  </div>
+  <div class="content" id="fr">
+    <h3>French</h3>
+    <p>This is French</p>
+  </div>
+  <div class="content" id="ch">
+    <h3>Chinese</h3>
+    <p>This is Chinese</p>
+  </div>
 </body>
-</html> 
+<script>
+  function clickCity(e, language){
+    const buttons = document.getElementsByTagName("button");
+    for(let i=0; i< buttons.length; i++){
+      buttons[i].classList.remove("active");
+    }
+    const button = e.target;
+    button.classList.add("active");
+    const cotents = document.getElementsByClassName("content");
+    for(let i=0; i< buttons.length; i++){
+      cotents[i].style.display="none";
+    }
+    const content = document.getElementById(language);
+    content.style.display="block"
+  }
+</script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .tab{
+            height:300px;
+            background-color: darkgray;
+            width: 30%;
+            float: left;
+        }
+        .tab button{
+            border: none;
+            outline: none;
+            width: 100%;
+            background-color: inherit;
+            line-height: 50px;
+            text-align: center; /*要设置width这个才管用*/
+            display: block;
+            font-size: 17px;
+        }
+        .tab button:hover{
+            background-color: pink;
+        }
+        .tab button.active{
+            background-color: pink;
+        }
+        .content{
+            height:300px;
+            background-color: pink;
+            width: 60%;
+            float: left;
+            display: none;
+            padding: 0px 12px;
+        }
+    </style>
+    <title>Vertical Tabs</title>
+</head>
+<body>
+    <div class="tab">
+        <button onclick="clickCity(event,'en')">English</button>
+        <button onclick="clickCity(event,'fr')">French</button>
+        <button onclick="clickCity(event,'ch')">Chinese</button>
+      </div>
+      <div class="content" id="en">
+        <h3>English</h3>
+        <p>This is English</p>
+      </div>
+      <div class="content" id="fr">
+        <h3>French</h3>
+        <p>This is French</p>
+      </div>
+      <div class="content" id="ch">
+        <h3>Chinese</h3>
+        <p>This is Chinese</p>
+      </div>
+</body>
+<script>
+    function clickCity(e, city){
+        const buttons = document.getElementsByTagName("button");
+        for(let i=0; i<buttons.length; i++){
+            buttons[i].classList.remove("active");
+        }
+        const button = e.target;
+        button.classList.add("active")
+        const contents = document.getElementsByClassName("content");
+        for(let i=0; i<contents.length;i++){
+            contents[i].style.display="none";
+        }
+        const content = document.getElementById(city);
+        content.style.display="block";
+    }
+</script>
+</html>
