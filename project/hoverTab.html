@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .tab{
+            width: 20%;
+            height: 300px;
+            background-color: darkgray;
+            float: left;
+        }
+        .city{
+            height:100px;
+            text-align: center;
+            font-size:20px;
+            line-height: 100px;
+        }
+        .city:hover{
+            background-color: grey;
+        }
+        .city.active{
+            background-color: grey;
+        }
+        .content{
+            width: 50%;
+            height: 298px;
+            padding-left: 20px;
+            float: left;
+            border:solid 1px darkgray;
+            display: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="tab">
+        <div class="city" onmouseover="mouseoverCity(event, 'london')">London</div>
+        <div class="city" onmouseover="mouseoverCity(event, 'paris')">Paris</div>
+        <div class="city" onmouseover="mouseoverCity(event, 'tokyo')">Tokyo</div>
+    </div>
+    <div class="content" id="london">
+        <h2>London</h2>
+        <p>This is London</p>
+    </div>
+    <div class="content" id="paris">
+        <h2>Paris</h2>
+        <p>This is Paris</p>
+    </div>
+    <div class="content" id="tokyo">
+        <h2>Tokyo</h2>
+        <p>This is Tokyo</p>
+    </div>
+    <script>
+        const  mouseoverCity = (e, city)=>{
+            const tabs = document.getElementsByClassName("city");
+            for(let i=0; i<tabs.length; i++){
+                tabs[i].classList.remove("active")
+            }
+            const cities = document.getElementsByClassName("content");
+            for(let i=0; i< cities.length; i++){
+                cities[i].style.display="none"
+            }
+            const cityMouseOver = document.getElementById(city);
+            cityMouseOver.style.display="block";
+            const currentCity = e.target;
+            currentCity.classList.add("active")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .row{
+            background-color: grey;
+            /* width: 100%; */
+            display: flex;
+        }
+        .left{
+            background-color: grey;
+            /* float: left;
+            width: 35%; */
+            flex: 35%;
+        }
+        .right{
+            background-color: darkgray;
+            /* float: left;
+            width: 65%; */
+            flex: 65%;
+        }
+        input{
+            border: 1px solid grey;
+            outline: none;
+            width: 100%;
+            height: 2.5em;
+            
+        }
+        li{
+            padding: 12px;
+            text-decoration: none;
+            list-style-type:none
+        }
+    </style>
+    <title>Search Menu</title>
+</head>
+<body>
+    <h2>Search Menu</h2>
+    <p>Start to type for a specific category inside the search bar to "filter" the search options.</p>
+    <div class="row">
+        <div class="left">
+            <h2>Menu</h2>
+            <input id="mySearch" onkeyup="inputHandler()">
+            <ul>
+                <li><a>HTML</a></li>
+                <li><a>CSS</a></li>
+                <li><a>JavaScript</a></li>
+                <li><a>PHP</a></li>
+                <li><a>Python</a></li>
+                <li><a>jQuery</a></li>
+                <li><a>SQL</a></li>
+                <li><a>Bootstrap</a></li>
+                <li><a>Node.js</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            222
+        </div>
+    </div>
+    <script>
+        const inputHandler = ()=>{
+            const filter = document.getElementById("mySearch").value.toUpperCase();
+            const a = document.getElementsByTagName("a");
+            for(let i=0; i<a.length; i++){
+                const inner = a[i].innerHTML.toUpperCase();
+                if(inner.indexOf(filter)==-1){
+                    a[i].parentElement.style.display="none"
+                } else {
+                    a[i].parentElement.style.display="block"
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>
+
+
+<!-- 
+    1. indexOf:
+        const html = "html";
+        html.indexOf("HTML") // 0, 代表从索引0开始有一个html
+        const hello = "hello";
+        hello.indexOf("l"); // 2, 代表从索引2开始有一个l
+        hello.indexOf("ll"); // 2, 代表从索引2开始有一个l;
+        hello.indexOf("z"); // -1, hello里面没有z，返回-1
+    2. onkeyup="inputHandler()"
+        键盘输入任何东西，or删除，都会触发该函数
+    3. <li>:
+        list-style-type:none
+ -->
